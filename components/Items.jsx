@@ -4,9 +4,9 @@ import { Slide } from "react-awesome-reveal";
 
 const Items = () => {
     return (
-        <div className=' md:px-[140px] my-4 w-full '>
+        <div className='px-4  sm:px-16 lg:px-[140px] my-4 w-full '>
             <h1 className='my-3 font-bold text-xl'>Explore Trader Joe</h1>
-            <div className='grid text-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
+            <div className='grid text-center grid-cols-2 md:grid-cols-3 '>
             <Slide direction='left'>
                 <Item img='/firstimage.webp' title='Trade Tokens' link='Trade' color='#D0E8D0' border='#6CCD72' />
                 <Item img='/secondimage.webp' title='Provide Liquidity' color='#CFEEF8' border='#71B7CF' />
