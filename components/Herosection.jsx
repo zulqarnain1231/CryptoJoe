@@ -3,7 +3,7 @@ import mainImage from '../public/herosectionimg.webp'
 import Image from 'next/image'
 const Herosection = () => {
   return (
-    <div className='flex flex-col gap-4 text-center px-5 py-4 my-3 bg-[#F3EEEA]'>
+    <div className='flex flex-col gap-4 text-center px-5 py-4 my-3 '>
         <div className=' w-full items-center'>
     <Image className='object-cover h-full mx-auto w-[80%] md:w-[60%]' src={mainImage} />
         </div>

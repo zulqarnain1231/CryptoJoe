@@ -1,9 +1,9 @@
 import React from 'react'
 import { BsBookmarkDashFill } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaGithub } from 'react-icons/fa'
-const Footer = () => {
+const Footer = ({isdark}) => {
   return (
-    <div className='px-4  md:gap-4 py-4 grid grid-cols-1 md:grid-cols-3 bg-white'>
+    <div className={`px-4  md:gap-4 py-4 grid grid-cols-1 md:grid-cols-3 ${isdark ? 'bg-[#1F202E] text-white' : 'bg-white'} `}>
       <div className='col-span-1 flex flex-col md:mr-6 gap-6'>
         <h1 className='font-bold'>Need Help?</h1>
         <p> Visit <span className='text-[#FF8F4D] cursor-pointer font-semibold hover:underline'>our support centre </span>for troubleshooting</p>

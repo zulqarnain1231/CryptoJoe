@@ -10,11 +10,11 @@ const Wrapper = ({children}) => {
   
   return (
     <div className='flex flex-col'>
-     <Navbar click={handleClick} />
-     <main className='mt-[4rem] bg-[#F3EEEA]'>
+     <Navbar isdark={darkMode} click={handleClick} />
+     <main className={`mt-[3rem] ${darkMode ? 'bg-[#181823] text-white' : 'bg-[#F3EEEA]'} `}>
         {children}
      </main>
-     <Footer />
+     <Footer isdark={darkMode} />
     </div>
   )
 }
