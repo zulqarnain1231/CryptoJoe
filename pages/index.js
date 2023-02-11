@@ -2,11 +2,13 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Herosection from '@/components/Herosection'
 import Items from '@/components/Items'
+import Table from '@/components/Table'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({data}) {
+  console.log(data);
   return (
     <>
       <Head>
@@ -20,8 +22,19 @@ export default function Home() {
       <Herosection />
       
       <Items />
+
+      <Table data={data} />
       </div> 
      
     </>
   )
+}
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d`)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { props: { data } }
 }

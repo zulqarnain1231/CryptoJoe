@@ -20,10 +20,10 @@ const Navbar = ({ click, isdark }) => {
         </div>
       </Link>
       <div className='flex gap-6 py-1'>
-        <p className='cursor-pointer p-3 rounded-lg hover:bg-[#ECECFE]  text-[#9A8880] font-semibold text-lg '>Trade</p>
-        <p className='cursor-pointer p-3 rounded-lg hover:bg-[#ECECFE] text-[#9A8880] font-semibold text-lg '>Pool</p>
-        <p className='cursor-pointer p-3 rounded-lg hover:bg-[#ECECFE] text-[#9A8880] font-semibold text-lg '>Stake</p>
-        <p className='cursor-pointer p-3 rounded-lg hover:bg-[#ECECFE] text-[#9A8880] font-semibold text-lg '>Farm</p>
+        <p className={`cursor-pointer p-3 rounded-lg ${isdark? 'hover:bg-slate-800' : 'hover:bg-[#ECECFE]'}  text-[#9A8880] font-semibold text-lg`}>Trade</p>
+        <p className={`cursor-pointer p-3 rounded-lg ${isdark? 'hover:bg-slate-800' : 'hover:bg-[#ECECFE]'} text-[#9A8880] font-semibold text-lg `}>Pool</p>
+        <p className={`cursor-pointer p-3 rounded-lg ${isdark? 'hover:bg-slate-800' : 'hover:bg-[#ECECFE]'} text-[#9A8880] font-semibold text-lg `}>Stake</p>
+        <p className={`cursor-pointer p-3 rounded-lg ${isdark? 'hover:bg-slate-800' : 'hover:bg-[#ECECFE]'} text-[#9A8880] font-semibold text-lg `}>Farm</p>
       </div>
       <div className='w-[318px] relative'>
         <span className='absolute top-4 left-3 cursor-pointer'><AiOutlineSearch size={20} /></span>
@@ -77,10 +77,10 @@ const Navbar = ({ click, isdark }) => {
     </div>
 
     <div className={`flex px-2 justify-between  lg:hidden w-full z-10 ${isdark ? 'bg-[#2F3146]  border-t-slate-500' : 'bg-white border'} bottom-0 fixed   py-1`}>
-      <p className='cursor-pointer py-3 px-6 rounded-lg hover:bg-[#ECECFE]  text-[#9A8880] font-semibold text-lg '>Trade</p>
-      <p className='cursor-pointer py-3 px-6 rounded-lg hover:bg-[#ECECFE] text-[#9A8880] font-semibold text-lg '>Pool</p>
-      <p className='cursor-pointer py-3 px-6 rounded-lg hover:bg-[#ECECFE] text-[#9A8880] font-semibold text-lg '>Stake</p>
-      <p className='cursor-pointer py-3 px-6 rounded-lg hover:bg-[#ECECFE] text-[#9A8880] font-semibold text-lg '>Farm</p>
+      <p className={`cursor-pointer py-3 px-6 rounded-lg ${isdark ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}   text-[#9A8880] font-semibold text-lg`}>Trade</p>
+      <p className={`cursor-pointer py-3 px-6 rounded-lg ${isdark ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}  text-[#9A8880] font-semibold text-lg `}>Pool</p>
+      <p className={`cursor-pointer py-3 px-6 rounded-lg ${isdark ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}  text-[#9A8880] font-semibold text-lg `}>Stake</p>
+      <p className={`cursor-pointer py-3 px-6 rounded-lg ${isdark ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}  text-[#9A8880] font-semibold text-lg `}>Farm</p>
     </div>
 
   </>
