@@ -6,13 +6,13 @@ const Item = ({title,img,color,border,link}) => {
     
   return (
     <Link href={`/${link}`} >
-    <div className={`my-4 rounded-3xl text-center hover:border-[${border}] border hover:border px-8 pt-8 pb-10 group bg-[${color}]  lg:h-[17rem] lg:w-[17rem] sm:h-56 sm:w-56 h-[10rem] w-[10rem] col-span-1 relative cursor-pointer `}>
+    <div className={`my-4 rounded-3xl text-center hover:border-${border} bg-${color} border hover:border px-8 pt-8 pb-10 group   lg:h-[17rem] lg:w-[17rem] sm:h-56 sm:w-56 h-[10rem] w-[10rem] col-span-1 relative cursor-pointer `}>
         <div>
         <Image className='h-full w-full group-hover:scale-110 duration-200' src={img} height='500' width='500' />
         </div>
        
    
-   <h1 className=' font-semibold absolute sm:left-16 left-6 bottom-1 group-hover:scale-100'>{title}</h1>
+   <h1 className=' font-semibold absolute lg:left-[7rem] left-[4rem] sm:left-[5rem] bottom-1 group-hover:scale-100'>{title}</h1>
     </div>
     </Link>
   )

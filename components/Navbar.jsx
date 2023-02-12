@@ -20,7 +20,9 @@ const Navbar = ({ click, isdark }) => {
         </div>
       </Link>
       <div className='flex gap-6 py-1'>
+      <Link href='/Trade' >
         <p className={`cursor-pointer p-3 rounded-lg ${isdark? 'hover:bg-slate-800' : 'hover:bg-[#ECECFE]'}  text-[#9A8880] font-semibold text-lg`}>Trade</p>
+        </Link>
         <p className={`cursor-pointer p-3 rounded-lg ${isdark? 'hover:bg-slate-800' : 'hover:bg-[#ECECFE]'} text-[#9A8880] font-semibold text-lg `}>Pool</p>
         <p className={`cursor-pointer p-3 rounded-lg ${isdark? 'hover:bg-slate-800' : 'hover:bg-[#ECECFE]'} text-[#9A8880] font-semibold text-lg `}>Stake</p>
         <p className={`cursor-pointer p-3 rounded-lg ${isdark? 'hover:bg-slate-800' : 'hover:bg-[#ECECFE]'} text-[#9A8880] font-semibold text-lg `}>Farm</p>
