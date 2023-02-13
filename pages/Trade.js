@@ -41,6 +41,7 @@ const Trade = ({ data }) => {
             />
           </div>
           <Select
+          placeholder='Select Token'
             options={options}
             getOptionLabel={(e) => (
               <div className="flex text-center gap-2 ">
@@ -62,12 +63,13 @@ const Trade = ({ data }) => {
             <input
               className={`${
                 darkMode ? "bg-slate-800" : "bg-white"
-              } hover:border-none border-none focus:outline-none focus:ring-0 text-2xl font-bold focus:border-none`}
+              } hover:border-none border-none focus:outline-none focus:ring-0 text-2xl font-bold focus:border-none `}
               type="number"
               placeholder="0.0"
             />
           </div>
           <Select
+          placeholder='Select Token'
             options={options}
             getOptionLabel={(e) => (
               <div className="flex text-center gap-2 ">

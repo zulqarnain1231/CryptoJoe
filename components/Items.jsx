@@ -4,7 +4,7 @@ import { Slide } from "react-awesome-reveal";
 
 const Items = () => {
     return (
-        <div className='px-6  sm:px-10 lg:px-[100px] my-4 w-full '>
+        <div className='px-6  sm:px-10 lg:px-[100px] my-8 w-full '>
             <h1 className='my-3 font-bold text-xl'>Explore Trader Joe</h1>
             <div className='grid text-center grid-cols-2 md:grid-cols-3 '>
             <Slide direction='left'>
