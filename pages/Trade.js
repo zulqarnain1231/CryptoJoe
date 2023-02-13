@@ -1,11 +1,25 @@
 import React, { useContext } from "react";
 import ThemeContext from "@/components/ThemeContext";
-const Trade = () => {
+import Select from "react-select";
+import Image from "next/image";
+
+const Trade = ({ data }) => {
   const context = useContext(ThemeContext);
   const { darkMode, setDarkMode } = context;
+  const options = [];
+  {
+    data.map((item) => {
+      const object = {
+        value: item.id,
+        image: item.image,
+        label: item.name,
+      };
+      options.push(object);
+    });
+  }
 
   return (
-    <div className="w-full my-28 md:px-16 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1">
+    <div className="w-full my-28 px-8 md:px-16 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1">
       <div className="col-span-1 pt-10 px-6 pb-6 w-full text-center">
         <p className="font-bold">No Currencies selected</p>
       </div>
@@ -17,22 +31,56 @@ const Trade = () => {
       >
         <div className="w-full justify-between flex ">
           <div className="flex flex-col gap-2">
-            <p className="font-semibold">Swap</p>
-            <input type="number" value="0.0" />
+            <p className="font-bold">Swap</p>
+            <input
+              className={`${
+                darkMode ? "bg-slate-800" : "bg-white"
+              } hover:border-none border-none focus:outline-none focus:ring-0 text-2xl font-bold focus:border-none`}
+              type="number"
+              placeholder="0.0"
+            />
           </div>
-          <select>
-            <option>one</option>
-          </select>
+          <Select
+            options={options}
+            getOptionLabel={(e) => (
+              <div className="flex text-center gap-2 ">
+                <Image
+                  className="h-5 w-5 "
+                  src={e.image}
+                  height="500"
+                  width="500"
+                />
+                <span style={{ marginLeft: 5 }}>{e.label}</span>
+              </div>
+            )}
+          />
         </div>
-        <div className="w-full border-b-2 my-6"></div>
+        <div className={`w-full border-b-2  my-6`}></div>
         <div className="w-full justify-between flex ">
           <div className="flex flex-col gap-2">
-            <p className="font-semibold">To</p>
-            <input type="number" value="0.0" />
+            <p className="font-bold">To</p>
+            <input
+              className={`${
+                darkMode ? "bg-slate-800" : "bg-white"
+              } hover:border-none border-none focus:outline-none focus:ring-0 text-2xl font-bold focus:border-none`}
+              type="number"
+              placeholder="0.0"
+            />
           </div>
-          <select>
-            <option>one</option>
-          </select>
+          <Select
+            options={options}
+            getOptionLabel={(e) => (
+              <div className="flex text-center gap-2 ">
+                <Image
+                  className="h-5 w-5 "
+                  src={e.image}
+                  height="500"
+                  width="500"
+                />
+                <span style={{ marginLeft: 5 }}>{e.label}</span>
+              </div>
+            )}
+          />
         </div>
         <button className="w-full mb-3 mt-6 bg-indigo-400 hover:bg-indigo-500  font-semibold text-white rounded-2xl p-3">
           Connect Wallet
@@ -41,5 +89,16 @@ const Trade = () => {
     </div>
   );
 };
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d`
+  );
+  const data = await res.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
+}
 
 export default Trade;

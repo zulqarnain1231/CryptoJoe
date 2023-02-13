@@ -8,7 +8,7 @@ import Table from '@/components/Table'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({data}) {
-  console.log(data);
+ 
   return (
     <>
       <Head>

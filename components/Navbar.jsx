@@ -17,7 +17,7 @@ const Navbar = () => {
  }
  console.log(darkMode);
   return (<>
-    <div className={`hidden lg:flex justify-between z-10 fixed w-full ${darkMode ? 'bg-[#181823]' : 'bg-[#F3EEEA] '}  p-2'`}>
+    <div className={`hidden lg:flex justify-between z-10 fixed w-full ${darkMode ? 'bg-[#181823]' : 'bg-[#F3EEEA] '}  py-2 px-4`}>
       <Link href='/' >
         <div className='h-10 w-10 py-0'>
           <Image className='cursor-pointer hover:-rotate-6 duration-150 object-cover h-full w-full mt-2' src={logo} />
