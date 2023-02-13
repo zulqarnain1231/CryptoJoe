@@ -1,23 +1,55 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ThemeContext from "@/components/ThemeContext";
 import Select from "react-select";
 import Image from "next/image";
 
+
+
 const Trade = ({ data }) => {
   const context = useContext(ThemeContext);
   const { darkMode, setDarkMode } = context;
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [fromValue, setFromValue] = useState("");
+  const [toValue, setToValue] = useState("");
+
+  const handleFrom = (e) => {
+    setFrom(e.value);
+    
+  };
+  const handleTo = (e) => {
+    setTo(e.value);
+  };
+  const handleFromValue = (e) => {
+    setFromValue(e.target.value);
+   final();
+    // const amount =parseInt(fromValue);
+   
+  
+  };
+  const url =`https://api.coinconvert.net/convert/${from}/${to}?amount=${fromValue}`
+  const final= async ()=>{
+   const response =await fetch(url);
+   const result=await response.json();
+   const To=to.toUpperCase()
+   const {ETH} =result;
+   console.log(ETH)
+  
+
+ }
   const options = [];
   {
     data.map((item) => {
       const object = {
-        value: item.id,
+        value: item.symbol,
         image: item.image,
         label: item.name,
       };
       options.push(object);
     });
   }
-
+  
+ 
   return (
     <div className="w-full my-28 px-8 md:px-16 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1">
       <div className="col-span-1 pt-10 px-6 pb-6 w-full text-center">
@@ -37,11 +69,13 @@ const Trade = ({ data }) => {
                 darkMode ? "bg-slate-800" : "bg-white"
               } hover:border-none border-none focus:outline-none focus:ring-0 text-2xl font-bold focus:border-none`}
               type="number"
+              onChange={handleFromValue}
               placeholder="0.0"
             />
           </div>
           <Select
-          placeholder='Select Token'
+            placeholder="Select Token"
+            onChange={handleFrom}
             options={options}
             getOptionLabel={(e) => (
               <div className="flex text-center gap-2 ">
@@ -69,7 +103,8 @@ const Trade = ({ data }) => {
             />
           </div>
           <Select
-          placeholder='Select Token'
+            placeholder="Select Token"
+            onChange={handleTo}
             options={options}
             getOptionLabel={(e) => (
               <div className="flex text-center gap-2 ">
