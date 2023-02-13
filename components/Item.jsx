@@ -8,7 +8,7 @@ const {darkMode,setDarkMode}=context;
 
   return (
     <Link href={`/${link}`} >
-    <div className={`my-4 rounded-3xl text-center hover:border-${border} ${darkMode? `bg-${darkColor}`:`bg-${color}`} border hover:border px-8 pt-8 pb-10 group   lg:h-[17rem] lg:w-[17rem] sm:h-56 sm:w-56 h-[10rem] w-[10rem] col-span-1 relative cursor-pointer `}>
+    <div className={`my-4 rounded-3xl text-center hover:border-${border} ${darkMode? `bg-${darkColor}`:`bg-${color} border`}  hover:border px-8 pt-8 pb-10 group   lg:h-[17rem] lg:w-[17rem] sm:h-56 sm:w-56 h-[10rem] w-[10rem] col-span-1 relative cursor-pointer `}>
         <div>
         <Image className='h-full w-full group-hover:scale-110 duration-200' src={img} height='500' width='500' />
         </div>

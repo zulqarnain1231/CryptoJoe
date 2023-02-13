@@ -1,6 +1,9 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import ThemeContext from '@/components/ThemeContext'
 const Trade = () => {
+  const context =useContext(ThemeContext);
+  const {darkMode,setDarkMode}=context;
+
   return (
     <div className='w-full my-28 md:px-16 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1'> 
     
@@ -8,7 +11,7 @@ const Trade = () => {
         <p className='font-bold'>No Currencies selected</p>
     </div>
     
-    <div className='col-span-1 p-6 flex flex-col  w-full bg-white rounded-3xl'>
+    <div className={`col-span-1 p-6 flex flex-col text-slate-400  w-full ${darkMode ?'bg-slate-800 ' :'bg-white' } rounded-3xl`}>
 
    <div className='w-full justify-between flex '>
      <div className='flex flex-col gap-2'>
