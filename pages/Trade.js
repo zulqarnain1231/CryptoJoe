@@ -4,8 +4,8 @@ const Trade = () => {
   return (
     <div className='w-full my-28 md:px-16 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1'> 
     
-    <div className='col-span-1 p-6 w-full text-center'>
-        <p className='font-semibold'>No Currencies selected</p>
+    <div className='col-span-1 pt-10 px-6 pb-6 w-full text-center'>
+        <p className='font-bold'>No Currencies selected</p>
     </div>
     
     <div className='col-span-1 p-6 flex flex-col  w-full bg-white rounded-3xl'>
