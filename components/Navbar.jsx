@@ -34,7 +34,7 @@ const Navbar = () => {
       </div>
       <div className='w-[318px] relative'>
         <span className='absolute top-4 left-3 cursor-pointer'><AiOutlineSearch size={20} /></span>
-        <input className='hover:border focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300  mt-1 py-2 px-10 rounded-full w-full' type="search" name="Search" id="Search" placeholder='Search by symbol or name' />
+        <input className={`${darkMode ? 'bg-slate-700 text-white ':'bg-white'} hover:border focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300  mt-1 py-2 px-10 rounded-full w-full`}  type="search" name="Search" id="Search" placeholder='Search by symbol or name' />
       </div>
 
       <div>
