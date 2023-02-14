@@ -3,8 +3,6 @@ import ThemeContext from "@/components/ThemeContext";
 import Select from "react-select";
 import Image from "next/image";
 
-
-
 const Trade = ({ data }) => {
   const context = useContext(ThemeContext);
   const { darkMode, setDarkMode } = context;
@@ -15,28 +13,25 @@ const Trade = ({ data }) => {
 
   const handleFrom = (e) => {
     setFrom(e.value);
-    
+    setToValue('')
   };
   const handleTo = (e) => {
     setTo(e.value);
+    setToValue('')
   };
   const handleFromValue = (e) => {
     setFromValue(e.target.value);
-   final();
+    final();
     // const amount =parseInt(fromValue);
-   
-  
   };
-  const url =`https://api.coinconvert.net/convert/${from}/${to}?amount=${fromValue}`
-  const final= async ()=>{
-   const response =await fetch(url);
-   const result=await response.json();
-   const To=to.toUpperCase()
-   const {[To]: conversion} =result;
-  setToValue(conversion)
-  
-
- }
+  const url = `https://api.coinconvert.net/convert/${from}/${to}?amount=${fromValue}`;
+  const final = async () => {
+    const response = await fetch(url);
+    const result = await response.json();
+    const To = to.toUpperCase();
+    const { [To]: conversion } = result;
+    setToValue(conversion);
+  };
   const options = [];
   {
     data.map((item) => {
@@ -48,8 +43,21 @@ const Trade = ({ data }) => {
       options.push(object);
     });
   }
-  
- 
+
+  const colorStyles = {
+    control: (styles) => ({
+      ...styles,
+      backgroundColor: `${darkMode ? "#334155" : "#ECECFE"}`,
+      borderRadius: "1.5rem",
+      padding: "4px",
+      fontWeight: "bold",
+      color: `${darkMode ? "white" : "black"}`,
+    }),
+    option:(styles,{data}) =>{
+      return {...styles,color:`${darkMode ? 'white': 'black'}`,fontWeight:'bold'}
+    },
+  };
+
   return (
     <div className="w-full my-28 px-8 md:px-16 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1">
       <div className="col-span-1 pt-10 px-6 pb-6 w-full text-center">
@@ -77,6 +85,7 @@ const Trade = ({ data }) => {
             placeholder="Select Token"
             onChange={handleFrom}
             options={options}
+            styles={colorStyles}
             getOptionLabel={(e) => (
               <div className="flex text-center gap-2 ">
                 <Image
@@ -98,7 +107,7 @@ const Trade = ({ data }) => {
               className={`${
                 darkMode ? "bg-slate-800" : "bg-white"
               } hover:border-none border-none focus:outline-none focus:ring-0 text-2xl font-bold focus:border-none `}
-             value={toValue}
+              value={toValue}
               type="number"
               placeholder="0.0"
             />
@@ -107,6 +116,7 @@ const Trade = ({ data }) => {
             placeholder="Select Token"
             onChange={handleTo}
             options={options}
+            styles={colorStyles}
             getOptionLabel={(e) => (
               <div className="flex text-center gap-2 ">
                 <Image
