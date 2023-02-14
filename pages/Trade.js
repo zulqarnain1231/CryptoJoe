@@ -32,8 +32,8 @@ const Trade = ({ data }) => {
    const response =await fetch(url);
    const result=await response.json();
    const To=to.toUpperCase()
-   const {ETH} =result;
-   console.log(ETH)
+   const {[To]: conversion} =result;
+  setToValue(conversion)
   
 
  }
@@ -98,6 +98,7 @@ const Trade = ({ data }) => {
               className={`${
                 darkMode ? "bg-slate-800" : "bg-white"
               } hover:border-none border-none focus:outline-none focus:ring-0 text-2xl font-bold focus:border-none `}
+             value={toValue}
               type="number"
               placeholder="0.0"
             />

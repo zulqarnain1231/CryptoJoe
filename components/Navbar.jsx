@@ -34,7 +34,7 @@ const Navbar = () => {
       </div>
       <div className='w-[318px] relative'>
         <span className='absolute top-4 left-3 cursor-pointer'><AiOutlineSearch size={20} /></span>
-        <input className={`${darkMode ? 'bg-slate-700 text-white ':'bg-white'} hover:border focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300  mt-1 py-2 px-10 rounded-full w-full`}  type="search" name="Search" id="Search" placeholder='Search by symbol or name' />
+        <input className={`${darkMode ? 'bg-slate-700 text-white ':'bg-white'} hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300  mt-1 py-2 px-10 rounded-full w-full`}  type="search" name="Search" id="Search" placeholder='Search by symbol or name' />
       </div>
 
       <div>
@@ -84,7 +84,9 @@ const Navbar = () => {
     </div>
 
     <div className={`flex px-2 justify-between  lg:hidden w-full z-10 ${darkMode ? 'bg-[#2F3146]  border-t-slate-500' : 'bg-white border'} bottom-0 fixed   py-1`}>
-      <p className={`cursor-pointer py-3 px-6 rounded-lg ${darkMode ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}   text-[#9A8880] font-semibold text-lg`}>Trade</p>
+      <Link href='/Trade'>
+        <p className={`cursor-pointer py-3 px-6 rounded-lg ${darkMode ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}   text-[#9A8880] font-semibold text-lg`}>Trade</p>
+      </Link>
       <p className={`cursor-pointer py-3 px-6 rounded-lg ${darkMode ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}  text-[#9A8880] font-semibold text-lg `}>Pool</p>
       <p className={`cursor-pointer py-3 px-6 rounded-lg ${darkMode ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}  text-[#9A8880] font-semibold text-lg `}>Stake</p>
       <p className={`cursor-pointer py-3 px-6 rounded-lg ${darkMode ? 'hover:bg-slate-800' :'hover:bg-[#ECECFE]'}  text-[#9A8880] font-semibold text-lg `}>Farm</p>
