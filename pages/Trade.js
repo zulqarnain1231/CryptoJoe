@@ -2,28 +2,38 @@ import React, { useContext, useState } from "react";
 import ThemeContext from "@/components/ThemeContext";
 import Select from "react-select";
 import Image from "next/image";
+import Chart from "@/components/Chart";
 
 const Trade = ({ data }) => {
   const context = useContext(ThemeContext);
   const { darkMode, setDarkMode } = context;
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
+  const[chart,setChart]=useState(false)
   const [fromValue, setFromValue] = useState("");
   const [toValue, setToValue] = useState("");
 
   const handleFrom = (e) => {
     setFrom(e.value);
+    setChart(false)
     setToValue('')
   };
   const handleTo = (e) => {
     setTo(e.value);
+   setChart(false)
     setToValue('')
   };
   const handleFromValue = (e) => {
     setFromValue(e.target.value);
+    setChart(true)
     final();
-    // const amount =parseInt(fromValue);
+   
   };
+  
+  
+  const filterdData=  data.filter((item)=> item.symbol == to);
+   const chartData=filterdData[0];
+   console.log(chartData)
   const url = `https://api.coinconvert.net/convert/${from}/${to}?amount=${fromValue}`;
   const final = async () => {
     const response = await fetch(url);
@@ -54,14 +64,17 @@ const Trade = ({ data }) => {
       color: `${darkMode ? "white" : "black"}`,
     }),
     option:(styles,{data}) =>{
-      return {...styles,color:`${darkMode ? 'white': 'black'}`,fontWeight:'bold'}
+      return {...styles,color:'black',fontWeight:'bold',backgrounColor:`${darkMode? '#334155':'#ECECFE'}`}
     },
   };
 
   return (
     <div className="w-full my-28 px-8 md:px-16 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1">
       <div className="col-span-1 pt-10 px-6 pb-6 w-full text-center">
+       {
+        chart? <Chart data={chartData} /> :
         <p className="font-bold">No Currencies selected</p>
+      } 
       </div>
 
       <div
