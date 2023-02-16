@@ -22,7 +22,7 @@ const Table = ({ data }) => {
                         return (
                             <TableItem
                                 rank={item.market_cap_rank}
-                                title={item.name}
+                                title={item.symbol}
                                 logo={item.image}
                                 volume={item.total_volume}
                                 price={item.current_price}
