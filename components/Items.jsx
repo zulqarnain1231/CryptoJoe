@@ -6,7 +6,7 @@ const Items = () => {
     return (
         <div className='px-6  sm:px-10 lg:px-[100px] my-8 w-full '>
             <h1 className='my-3 font-bold text-xl'>Explore Trader Joe</h1>
-            <div className='grid text-center grid-cols-2 md:grid-cols-3 '>
+            <div className='grid gap-4 sm:gap-0 text-center grid-cols-2 md:grid-cols-3 '>
             <Slide direction='left'>
                 <Item img='/firstimage.webp' title='Trade' link='Trade' darkColor='bg-green-800' color='bg-green-200' border='hover:border-green-500' />
                 <Item img='/secondimage.webp' title='Trade' darkColor='bg-indigo-800' color='bg-indigo-200' border='hover:border-blue-600' />
