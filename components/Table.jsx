@@ -6,7 +6,7 @@ const Table = ({ data }) => {
         <>
             <div className='flex flex-col px-6  sm:px-10  lg:px-[80px] my-12 w-full'>
                 <h1 className='font-bold text-2xl my-5'>Top Traded</h1>
-                <div className='grid gap-16 sm:gap-0 grid-cols-2 md:grid-cols-6 px-4 w-full'>
+                <div className='grid  justify-center text-center sm:gap-0 grid-cols-2 md:grid-cols-6 px-4 w-full'>
                     <div className='md:col-span-2  flex gap-4 sm:gap-[2rem] md:gap-16 lg:gap-20'>
                         <p className=' font-semibold text-indigo-500 '>#</p>
                         <p className=' font-semibold text-indigo-500 '>TOKEN</p>
