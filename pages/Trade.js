@@ -9,31 +9,29 @@ const Trade = ({ data }) => {
   const { darkMode, setDarkMode } = context;
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
-  const[chart,setChart]=useState(false)
+  const [chart, setChart] = useState(false);
   const [fromValue, setFromValue] = useState("");
   const [toValue, setToValue] = useState("");
 
   const handleFrom = (e) => {
     setFrom(e.value);
-    setChart(false)
-    setToValue('')
+    setChart(false);
+    setToValue("");
   };
   const handleTo = (e) => {
     setTo(e.value);
-   setChart(false)
-    setToValue('')
+    setChart(false);
+    setToValue("");
   };
   const handleFromValue = (e) => {
     setFromValue(e.target.value);
-    setChart(true)
+    setChart(true);
     final();
-   
   };
-  
-  
-  const filterdData=  data.filter((item)=> item.symbol == to);
-   const chartData=filterdData[0];
-   console.log(chartData)
+
+  const filterdData = data.filter((item) => item.symbol == to);
+  const chartData = filterdData[0];
+  console.log(chartData);
   const url = `https://api.coinconvert.net/convert/${from}/${to}?amount=${fromValue}`;
   const final = async () => {
     const response = await fetch(url);
@@ -63,18 +61,24 @@ const Trade = ({ data }) => {
       fontWeight: "bold",
       color: `${darkMode ? "white" : "black"}`,
     }),
-    option:(styles,{data}) =>{
-      return {...styles,color:'black',fontWeight:'bold',backgrounColor:`${darkMode? '#334155':'#ECECFE'}`}
+    option: (styles, { data }) => {
+      return {
+        ...styles,
+        color: "black",
+        fontWeight: "bold",
+        backgrounColor: `${darkMode ? "#334155" : "#ECECFE"}`,
+      };
     },
   };
 
   return (
     <div className="w-full my-28 px-4 md:px-8 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1">
       <div className="col-span-1 pt-10 px-6 pb-6 w-full text-center">
-       {
-        chart? <Chart data={chartData} /> :
-        <p className="font-bold">No Currencies selected</p>
-      } 
+        {chart ? (
+          <Chart data={chartData} />
+        ) : (
+          <p className="font-bold">No Currencies selected</p>
+        )}
       </div>
 
       <div
@@ -82,7 +86,7 @@ const Trade = ({ data }) => {
           darkMode ? "bg-slate-800 " : "bg-white"
         } rounded-3xl`}
       >
-        <div className="w-full  justify-between flex ">
+        <div className="w-full  justify-between flex items-center ">
           <div className="flex flex-col gap-2">
             <p className="font-bold">Swap</p>
             <input
@@ -94,29 +98,28 @@ const Trade = ({ data }) => {
               placeholder="0.0"
             />
           </div>
-          <div className="flex justify-center text-center ">
-
-          <Select
-            placeholder="Select Token"
-            onChange={handleFrom}
-            options={options}
-            styles={colorStyles}
-            getOptionLabel={(e) => (
-              <div className="flex text-center gap-2 ">
-                <Image
-                  className="h-5 w-5 "
-                  src={e.image}
-                  height="500"
-                  width="500"
+          <div className="flex items-center justify-center text-center ">
+            <Select
+              placeholder="Select Token"
+              onChange={handleFrom}
+              options={options}
+              styles={colorStyles}
+              getOptionLabel={(e) => (
+                <div className="flex text-center gap-2 ">
+                  <Image
+                    className="h-5 w-5 "
+                    src={e.image}
+                    height="500"
+                    width="500"
                   />
-                <span style={{ marginLeft: 5 }}>{e.label}</span>
-              </div>
-            )}
+                  <span style={{ marginLeft: 5 }}>{e.label}</span>
+                </div>
+              )}
             />
-            </div>
+          </div>
         </div>
         <div className={`w-full border-b-2  my-6`}></div>
-        <div className="w-full justify-between flex ">
+        <div className="w-full justify-between flex items-center ">
           <div className="flex flex-col gap-2">
             <p className="font-bold">To</p>
             <input
@@ -128,26 +131,25 @@ const Trade = ({ data }) => {
               placeholder="0.0"
             />
           </div>
-          <div>
-
-          <Select
-            placeholder="Select Token"
-            onChange={handleTo}
-            options={options}
-            styles={colorStyles}
-            getOptionLabel={(e) => (
-              <div className="flex text-center gap-2 ">
-                <Image
-                  className="h-5 w-5 "
-                  src={e.image}
-                  height="500"
-                  width="500"
+          <div className="flex items-center justify-center text-center ">
+            <Select
+              placeholder="Select Token"
+              onChange={handleTo}
+              options={options}
+              styles={colorStyles}
+              getOptionLabel={(e) => (
+                <div className="flex text-center gap-2 ">
+                  <Image
+                    className="h-5 w-5 "
+                    src={e.image}
+                    height="500"
+                    width="500"
                   />
-                <span style={{ marginLeft: 5 }}>{e.label}</span>
-              </div>
-            )}
+                  <span style={{ marginLeft: 5 }}>{e.label}</span>
+                </div>
+              )}
             />
-            </div>
+          </div>
         </div>
         <button className="w-full mb-3 mt-6 bg-indigo-400 hover:bg-indigo-500  font-semibold text-white rounded-2xl p-3">
           Connect Wallet
