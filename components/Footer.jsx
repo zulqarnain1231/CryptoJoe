@@ -1,14 +1,14 @@
 import React from 'react'
 import { BsBookmarkDashFill } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaGithub } from 'react-icons/fa'
-const Footer = ({isdark}) => {
+const Footer = ({ isdark }) => {
   return (
     <div className={`px-4  md:gap-4 py-4 grid grid-cols-1 md:grid-cols-3 ${isdark ? 'bg-[#1F202E] text-white' : 'bg-white'} `}>
       <div className='col-span-1 flex flex-col md:mr-6 gap-6'>
         <h1 className='font-bold'>Need Help?</h1>
         <p> Visit <span className='text-[#FF8F4D] cursor-pointer font-semibold hover:underline'>our support centre </span>for troubleshooting</p>
         <p>Join <span className='text-[#FF8F4D] cursor-pointer font-semibold hover:underline'>our official Discord</span>  for dedicated support</p>
-        <div className='flex gap-12'>
+        <div className='flex items-center gap-12'>
           <button className='text-white bg-[#FF8F4D] rounded-full p-3 hover:bg-orange-500 '>
             <FaDiscord size={20} />
           </button>
@@ -26,7 +26,7 @@ const Footer = ({isdark}) => {
           </button>
 
         </div>
-        <div className='flex gap-6'>
+        <div className='flex items-center gap-6'>
           <p className='text-[#FF8F4D] font-semibold cursor-pointer hover:underline'>Security</p>
           <p className='text-[#FF8F4D] font-semibold cursor-pointer hover:underline'>Developers</p>
           <p className='text-[#FF8F4D] font-semibold cursor-pointer hover:underline'>Privacy</p>
