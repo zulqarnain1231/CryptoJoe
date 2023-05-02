@@ -69,7 +69,7 @@ const Trade = ({ data }) => {
   };
 
   return (
-    <div className="w-full my-28 px-8 md:px-16 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1">
+    <div className="w-full my-28 px-4 md:px-8 gap-4 md:gap-0 grid md:grid-cols-2 grid-cols-1">
       <div className="col-span-1 pt-10 px-6 pb-6 w-full text-center">
        {
         chart? <Chart data={chartData} /> :
@@ -82,7 +82,7 @@ const Trade = ({ data }) => {
           darkMode ? "bg-slate-800 " : "bg-white"
         } rounded-3xl`}
       >
-        <div className="w-full justify-between flex ">
+        <div className="w-full  justify-between flex ">
           <div className="flex flex-col gap-2">
             <p className="font-bold">Swap</p>
             <input
@@ -94,6 +94,8 @@ const Trade = ({ data }) => {
               placeholder="0.0"
             />
           </div>
+          <div className="flex justify-center text-center ">
+
           <Select
             placeholder="Select Token"
             onChange={handleFrom}
@@ -106,11 +108,12 @@ const Trade = ({ data }) => {
                   src={e.image}
                   height="500"
                   width="500"
-                />
+                  />
                 <span style={{ marginLeft: 5 }}>{e.label}</span>
               </div>
             )}
-          />
+            />
+            </div>
         </div>
         <div className={`w-full border-b-2  my-6`}></div>
         <div className="w-full justify-between flex ">
@@ -125,6 +128,8 @@ const Trade = ({ data }) => {
               placeholder="0.0"
             />
           </div>
+          <div>
+
           <Select
             placeholder="Select Token"
             onChange={handleTo}
@@ -137,11 +142,12 @@ const Trade = ({ data }) => {
                   src={e.image}
                   height="500"
                   width="500"
-                />
+                  />
                 <span style={{ marginLeft: 5 }}>{e.label}</span>
               </div>
             )}
-          />
+            />
+            </div>
         </div>
         <button className="w-full mb-3 mt-6 bg-indigo-400 hover:bg-indigo-500  font-semibold text-white rounded-2xl p-3">
           Connect Wallet
