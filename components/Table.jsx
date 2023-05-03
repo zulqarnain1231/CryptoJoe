@@ -6,15 +6,18 @@ const Table = ({ data }) => {
         <>
             <div className='flex flex-col px-6  sm:px-10  lg:px-[80px] my-12 w-full'>
                 <h1 className='font-bold text-2xl my-5'>Top Traded</h1>
-                <div className='grid  sm:gap-0 grid-cols-2 md:grid-cols-[.5fr,1fr,1fr,1fr,1fr,1fr] px-4 w-full'>
-                    <p className=' font-semibold text-indigo-500 '>#</p>
-                    <p className=' font-semibold text-indigo-500 '>TOKEN</p>
-                    <p className='col-span-1 hidden md:flex items-center font-semibold text-indigo-500 '>VOLUME</p>
-                    <p className='col-span-1  font-semibold text-indigo-500 '>PRICE</p>
-                    <p className='col-span-1 hidden md:flex items-center font-semibold text-indigo-500 '>CHANGE(24H)</p>
-                    <p className='col-span-1 hidden md:flex items-center font-semibold text-indigo-500 '>CHANGE(7D)</p>
+                <div className='w-full overflow-auto HideScroll'>
+                <div className='grid  h-[40px]  grid-cols-[.5fr,1fr,1fr,1fr,1fr,1fr] px-4 min-w-[600px] w-full overflow-auto'>
+                    <p className=' flex items-center font-semibold text-indigo-500 '>#</p>
+                    <p className=' flex items-center font-semibold text-indigo-500 '>TOKEN</p>
+                    <p className=' flex items-center font-semibold text-indigo-500 '>VOLUME</p>
+                    <p className=' flex items-center   font-semibold text-indigo-500 '>PRICE</p>
+                    <p className=' flex items-center font-semibold text-indigo-500 '>CHANGE(24H)</p>
+                    <p className=' flex items-center font-semibold text-indigo-500 '>CHANGE(7D)</p>
                 </div>
-                <div className='w-full h-[500px] flex flex-col overflow-auto ThinScrollbar'>
+                </div>
+    
+                <div className='w-full min-w-[600px] h-[500px] flex flex-col overflow-auto ThinScrollbar'>
                     {
                         data.map((item) => {
                             return (
