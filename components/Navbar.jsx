@@ -62,7 +62,7 @@ const Navbar = () => {
         </div>
       </Link>
 
-      <div className=' md:flex hidden gap-3'>
+      <div className='flex gap-3'>
 
         <div>
           {
